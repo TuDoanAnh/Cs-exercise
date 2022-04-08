@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using FirstWebApp.Models
+@model Course
+<!doctype html>
+<html>
+    <head>
+        <title>Edit nek</title>
+    </head>
+    <body>
+        @if(Model is null)
+    {
+        <p>K co Course nek</p>
+    }
+    else
+    {
+        <form action="/Course/DoEdit/" method="post">
+            <input type="hidden" name="NewCourse.CourseId" value="@Model.CourseId">
+            <input type="text" name="NewCourse.CourseCode" value="@Model.CourseCode">
+            <input type="text" name="NewCourse.CourseDescription" value="@Model.CourseDescription">
+            <select name="NewCourse.SubjectId">
+                @foreach (Subject subject in ViewBag.Subjects)
+               {
+                   <option value="@subject.SubjectId" @(subject.SubjectId == Model.SubjectId?"selected":"")>@subject.SubjectName</option>
+               }
+            </select>
+
+            <select name="NewCourse.InstructorId">
+                @foreach (Instructor instructor in ViewBag.Instructors)
+               {
+                   <option value="@instructor.InstructorId" @(instructor.InstructorId == Model.InstructorId?"selected":"")>@instructor.InstructorFirstName</option>
+               }
+            </select>
+            <input type="submit" value="Edit">
+        </form>
+    }
+</body>
+</html>

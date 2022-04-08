@@ -1,0 +1,5 @@
+{
+    "ConnectionStrings": {
+        "ApDBConStr": "server=DESKTOP-C60MLV4; database=APDatabase; user=sa; password=tu25072001;"
+    }
+}

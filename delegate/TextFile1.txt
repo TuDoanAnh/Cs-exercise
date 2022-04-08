@@ -1,0 +1,2 @@
+﻿1|Trung|1000|Manager
+2|Hoang|905|Developer

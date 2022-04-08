@@ -1,0 +1,14 @@
+{
+    "exclude": [
+        "**/bin",
+        "**/bower_components",
+        "**/jspm_packages",
+        "**/node_modules",
+        "**/obj",
+        "**/platforms"
+    ],
+
+    "ConnectionStrings": {
+        "PokemonConStr": "server=DESKTOP-C60MLV4; database=Pokedex; user=sa; password=tu25072001;"
+    }
+}

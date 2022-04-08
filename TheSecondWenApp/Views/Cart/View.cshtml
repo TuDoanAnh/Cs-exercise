@@ -1,0 +1,21 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using TheSecondWenApp.Models;
+@using System.Collections.Generic;
+@model Dictionary<Product, int>;
+<!doctype html>
+<html>
+    <head>
+        <title>Cart Nek</title>
+    </head>
+    <body>
+        <h1>Cart day Nek</h1>
+        @foreach(Product item in Model.Keys)
+    {
+        <div>@item.ProductId - @item.ProductName - @item.UnitPrice - Quantity: @Model[item] => Price: @(Model[item]*item.UnitPrice)</div>
+    }
+    <h3>Amount: @ViewBag.Total</h3>
+    <a href="/Order/Create">Order Nek</a>
+</body>
+</html>

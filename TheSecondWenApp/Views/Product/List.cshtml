@@ -1,0 +1,48 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using TheSecondWenApp.Models
+@model List<Product>
+
+<!doctype html>
+<html>
+    <head>
+        <title>List Product Nek</title>
+    </head>
+    <body>
+        <div>
+            <a href="/Cart/View">Cart Nek</a>
+            <div style="float: left; width:30%">
+                <h2>List Nek</h2>  
+            @foreach (Category item in @ViewBag.Categories)
+               {
+                  <div><a href="/Product/List/@item.CategoryId">@item.CategoryName</a></div>
+               }
+            </div>
+
+            <div style="float: left; width:60%">
+                <div style="display:flex; flex-direction:column;">
+                @foreach (Product item in @Model)
+               {
+                   <div>
+                       <span>@item.ProductName</span>
+                       <span>@item.UnitPrice</span>
+                       <a href="/Product/AddtoCart/@item.CategoryId/@(ViewBag.PageSize/5)/@item.ProductId">Add to Cart</a>
+
+                   </div>
+               }
+               <div>
+               @for(int i=0;i<@ViewBag.TotalPage; i++)
+                {
+               <a href="/Product/List/@ViewBag.CategoryId/@(i+1)">@(i+1)</a>
+                }
+                </div>
+               </div>
+            </div>
+        </div>
+        @if (TempData["notiCreateOrder"] != null)
+    {
+        <script>alert('@TempData["notiCreateOrder"]');</script>
+    }
+    </body>
+</html>

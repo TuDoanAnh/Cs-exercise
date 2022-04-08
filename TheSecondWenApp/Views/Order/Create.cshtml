@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using TheSecondWenApp.Models
+<!doctype html>
+<html>
+    <head>
+        <title>Creat Order Nek</title>
+    </head>
+    <body>
+        <form method="POST" action="/Order/DoCreate">
+        <span>Customer</span>
+        <select name="NewOrder.CustomerId">
+            @foreach(Customer c in ViewBag.Customer)
+        {
+            <option value="@c.CustomerId">@c.CompanyName</option>
+        }
+        </select></br>
+        <span>Employee</span>
+        <select name="NewOrder.EmployeeId">
+            @foreach(Employee e in ViewBag.Employee)
+        {
+            <option value="@e.EmployeeId">@e.FirstName @e.LastName</option>
+        }
+        </select></br>
+
+        Require Date<input type="date" name="NewOrder.RequiredDate" min="2022-03-24"></br>
+        <span>Ship Via</span>
+        <select name="NewOrder.ShipVia">
+            @foreach(Shipper s in ViewBag.Shipper)
+        {
+            <option value="@s.ShipperId">@s.CompanyName</option>
+        }
+        </select></br>
+
+        Freight: <input name="NewOrder.Freight" type="number"></br>
+        ShipName: <input name="NewOrder.ShipName" type="text"></br>
+        ShipAddress: <input name="NewOrder.ShipAddress" type="text"></br>
+        ShipCity: <input name="NewOrder.ShipCity" type="text"></br>
+        ShipRegion: <input name="NewOrder.ShipRegion" type="text"></br>
+        ShipPostalCode: <input name="NewOrder.ShipPostalCode" type="text"></br>
+        ShipCountry: <input name="NewOrder.ShipCountry" type="text"></br>
+        <input type="submit" value="Create">
+        </form>
+    </body>
+</html>
